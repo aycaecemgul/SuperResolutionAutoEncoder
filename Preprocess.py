@@ -19,10 +19,10 @@ for file in os.listdir(DIR):
     img_array = asarray(Image.open(filename).convert('RGB'))
     image = resize(img_array, (IMG_SIZE, IMG_SIZE), anti_aliasing=True)
 
-    X.append(image)
+    y.append(image)
 
     blurred_img = gaussian(image, multichannel=False)
-    y.append(blurred_img)
+    X.append(blurred_img)
 
 
 X=np.array(X).reshape(-1,IMG_SIZE,IMG_SIZE,3)
