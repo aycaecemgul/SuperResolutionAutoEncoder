@@ -24,7 +24,8 @@ def image1():
     binary=area_opening(binary,area_threshold=3000)
     binary = closing(binary, disk(5))
     binary=erosion(binary)
-
+    plt.imshow(np.asarray(Image.open("flowers.jpg")))
+    plt.show()
     return binary
 
 def image2():
@@ -40,25 +41,24 @@ def image2():
     segment=area_opening(segment,area_threshold=3000)
     segment=closing(segment,disk(5))
     segment=erosion(segment)
-    #plt.hist(elevation_map, bins = 10)
+    plt.hist(elevation_map, bins = 10)
 
 
-    # fig, ax = plt.subplots(figsize=(7, 4))
-    # ax.set_title('Elevation Map')
-    # plt.imshow(elevation_map,cmap="gray")
-    # ax.axis("off")
+    fig, ax = plt.subplots(figsize=(7, 4))
+    ax.set_title('Elevation Map')
+    plt.imshow(elevation_map,cmap="gray")
+    ax.axis("off")
 
 
 
-    # fig, ax = plt.subplots(figsize=(7, 4))
-    # ax.imshow(markers, cmap=plt.cm.nipy_spectral)
-    # ax.set_title('markers')
+    fig, ax = plt.subplots(figsize=(7, 4))
+    ax.imshow(markers, cmap=plt.cm.nipy_spectral)
+    ax.set_title('markers')
 
-    # fig, ax = plt.subplots(figsize=(7, 4))
-    # ax.set_title('segmentation')
-    # plt.imshow(segment,cmap="gray")
-    # ax.axis("off")
-    #plt.show()
+    fig, ax = plt.subplots(figsize=(7, 4))
+    ax.set_title('segmentation')
+    plt.imshow(segment,cmap="gray")
+    ax.axis("off")
+    plt.show()
     return segment
-#image1()
-image2()
+
